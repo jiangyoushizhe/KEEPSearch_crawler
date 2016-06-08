@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Course List</title>
+		<script type="text/javascript" src="jquery-1.12.4.js"></script>
+		<script src="xuetang_courses.js"></script>
+		<script src="coursera_courses.js"></script>
+		<script type="text/javascript">
+			var main = function(){
+				$("#display_xuetang").click(function(){
+					var strHtml = ''
+					$.each(data_xuetang, function(infoIndex, info){
+						strHtml += "<div>"
+						strHtml += "<h3>" + info["title"] + "</h3>"
+						strHtml += "<img src=\"" + info["cover_url"] + "\">"
+						strHtml += "<ul>"
+						strHtml += "<li>instructors: " + info["instructors"] + "</li>"
+						strHtml += "<li>description: " + info["description"] + "</li>"
+						strHtml += "<li>strat_date: " + info["start_date"] + "</li>"
+						strHtml += "<li>end_date: " + info["end_date"] + "</li>"
+						strHtml += "<li>commitment: " + info["commitment"] + "</li>"
+						strHtml += "<li>subject_name: " + info["subject_name"] + "</li>"
+						strHtml += "<li>course_url: " + info["course_url"] + "</li>"
+						strHtml += "<li>institution: " + info["institution_name"] + "</li>"
+						strHtml += "<li>provider: " + info["provider_name"] + "</li>"
+						strHtml += "</ul></div>\n"
+					});
+					$("#content_xuetang").html(strHtml)
+				});
+				$("#display_coursera").click(function(){
+					var strHtml = ''
+					$.each(data_coursera, function(infoIndex, info){
+						strHtml += "<div>"
+						strHtml += "<h3>" + info["title"] + "</h3>"
+						strHtml += "<img src=\"" + info["cover_url"] + "\"" + "height=\"250\" width=\"400\"/>"
+						strHtml += "<ul>"
+						strHtml += "<li>instructors: " + info["instructors"] + "</li>"
+						strHtml += "<li>description: " + info["description"] + "</li>"
+						strHtml += "<li>strat_date: " + info["start_date"] + "</li>"
+						strHtml += "<li>end_date: " + info["end_date"] + "</li>"
+						strHtml += "<li>commitment: " + info["commitment"] + "</li>"
+						strHtml += "<li>subject_name: " + info["subject_name"] + "</li>"
+						strHtml += "<li>topic_name: " + info["topic_name"] + "</li>"
+						strHtml += "<li>course_url: " + info["course_url"] + "</li>"
+						strHtml += "<li>institution: " + info["institution_name"] + "</li>"
+						strHtml += "<li>language: " + info["language_name"] + "</li>"
+						strHtml += "<li>provider: " + info["provider_name"] + "</li>"
+						strHtml += "</ul></div>\n"
+					});
+					$("#content_coursera").html(strHtml)
+				});
+			};
+			$(document).ready(main);
+		</script>
+	</head>
+	<body>
+		<input type="button" value="display_xuetang" id="display_xuetang"/>
+		<input type="button" value="display_coursera" id="display_coursera"/>
+		<div id="content_xuetang">
+		</div>
+		<div id="content_coursera">
+		</div>
+	</body>
+</html>
